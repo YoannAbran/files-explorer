@@ -9,32 +9,53 @@
     <?php
 
     $files = array();
-
 // Ouverture du répetoire courant
 // Pour le changer utiliser chdir() avant opendir()
 $handle = opendir(".");
-
 // Parcours des fichiers et dossiers du répertoire courant
 while($file = readdir($handle)) {
     if($file != "." && $file != "..") {
         $files[] = $file;
     }
 }
-
 // Fermeture du répertoire courant
 closedir($handle);
-
 // Tri du tableaunat
 sort($files);
 
-// Affichage des fichiers et dossiers triés
-foreach($files as $v) {
-    echo $v . "<br />";
-}
-print_r($files)
-     ?>
-     <!-- liens avec element du tableau afficher grace a l'index-->
-     <a href="#"><?php echo $files[0]; ?></a>
+$fichiers = array();
+$dh = opendir(".");
+
+  while($fichier = readdir($dh)) {
+ if($fichier != "." && $fichier != "..") {
+     $fichiers[] = $fichier;
+ }
+ }
+
+
+
+
+
+closedir($dh);
+sort($fichiers);
+
+
+
+
+// fonction pour naviguer dans les dossier grace au liens
+
+// si c'est un dossier "opendir ?"
+
+// sinon si c'est un fichier txt "file_get_contents ?"
+
+// sinon pour les autres fichiers "fopen ?"
+
+
+
+foreach($files as $v)  {
+  ?> <a href="cible.php?var=handle"><?php echo $v . "<br />";
+} ?></a>
+
 
   </body>
 </html>
