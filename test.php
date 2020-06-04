@@ -22,6 +22,7 @@ function ScanDirectory($pDir, $pData) {
     closedir($dir);
     }
     return $listDir;
+
 }
 
 
@@ -34,28 +35,3 @@ if (empty($_GET['dir']))  {
     $dir = $_GET['dir'];
     $list = ScanDirectory($defaultDir, $dir);
 }
-
-
-// <nav aria-label="breadcrumb bg-dark">
-//     <ol class="breadcrumb">
-// <?php
-//
-//       $path = "C:'\'wamp64'\'www'\'yabran'\'files-explorer'\'";
-//       $names = explode("/", $path);
-//       $trimnames = array_slice($names, 1, -1);
-//       $length = count($trimnames)-1;
-//       $url = "";
-//           for ($i = 0; $i <= $length;$i++){
-//           $url .= $trimnames[$i].'/';
-//               if($i>0 && $i!=$length){
-//                 echo "<li class='breadcrumb-item'><a href=''/'.$url.''>$trimnames[$i]</a></li>";
-//                }
-//                 elseif ($i == $length){
-//               echo"<li class='breadcrumb-item'>$trimnames[$i]</li>";
-//                 }
-//                 else {
-//                 echo  "<li class='breadcrumb-item'><a href='index.php'>'Home'</a></li>";
-//                 }}
-//
- //     </ol>
-// </nav>
