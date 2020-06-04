@@ -23,13 +23,14 @@
     <div class="row">
       <div class="col-sm px-3 py-1">
 
-	        <nav aria-label="breadcrumb">
+	        <nav aria-label="breadcrumb bg-dark">
   		        <ol class="breadcrumb">
     		         <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-    		         <li class="breadcrumb-item"><a href="index.php?dir=$item"></a><?php echo $prev ; ?></li>
-    		         <li class="breadcrumb-item active" aria-current="page"><?php echo $here ; ?></li>
+    		         <li class="breadcrumb-item"><a href="#"></a></li>
+                  <li class="breadcrumb-item active" aria-current="page"></li>
   		        </ol>
 	       </nav>
+
 
       </div>
     </div>
@@ -39,7 +40,7 @@
   <div class="row">
     <div class="col-sm mt-3">
 
-<table class="table table-sm table-hover mb-5">
+<table class="table table-dark  table-hover mb-5">
   <thead>
     <tr>
       <th scope="col">Nom</th>
@@ -57,10 +58,10 @@
      $date = "<span style='font-size:12px;'>".date("d-m-Y H:i:s", filemtime($item))."</span>";
 
      if (is_dir("$item")) {
-        echo "<tr><td><i class=\"fas fa-folder-open\"></i> <a href='index.php?dir=$item'>$item</a></td><td>$size<td>$type</td><td>$date</td>";
+        echo "<tr><td><i class=\"fas fa-folder text-primary \"></i> <a class='text-white ' href='index.php?dir=$item'>$item</a></td><td>$size<td>$type</td><td>$date</td>";
      }
      else {
-        echo "<tr><td><i class=\"fas fa-file\"></i> <a href=\"".$item."\">$item</a></td><td>$size</td><td>$type</td><td>$date</td></tr>";
+        echo "<tr><td><i class=\"fas fa-file text-danger\"></i> <a class='text-white ' href=\"".$item."\">$item</a></td><td>$size</td><td>$type</td><td>$date</td></tr>";
      }
   }
 
