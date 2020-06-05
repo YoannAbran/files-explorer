@@ -27,7 +27,7 @@ function ScanDirectory($pDir, $pData) {
 
 
 
-$defaultDir = ".";
+$defaultDir = getcwd();
 
 if (empty($_GET['dir']))  {
     $list = ScanDirectory($defaultDir, "");
@@ -35,3 +35,4 @@ if (empty($_GET['dir']))  {
     $dir = $_GET['dir'];
     $list = ScanDirectory($defaultDir, $dir);
 }
+chdir($defaultDir);

@@ -22,7 +22,7 @@
 
     <div class="row">
       <div class="col-sm px-3 py-1">
-
+        
 	       <nav aria-label='breadcrumb'>
   		        <ol class='breadcrumb'>
     		         <li class='breadcrumb-item'><a href='index.php'>Home</a></li>
@@ -56,6 +56,8 @@
   <tbody>
 
 <?php
+
+
   foreach ($list as $item) {
      $size = "<span style='font-size:12px;'>".filesize($item)."</span>";
      $type = "<span style='font-size:12px;'>".mime_content_type($item)."</span>";
@@ -63,7 +65,8 @@
 
      if (is_dir("$item")) {
         echo "<tr>
-        <td><i class=\"fas fa-folder text-primary \"></i> <a class='text-white ' href='index.php?dir=$item'>$item</a></td><td>$size<td>$type</td><td>$date</td>";
+        <td><i class=\"fas fa-folder text-primary \"></i> <a href=\"".$_SERVER['PHP_SELF']."?dir=".rawurlencode($item).
+        "\">$item</a></td><td>$size<td>$type</td><td>$date</td>";
      }
      else {
         echo "<tr><td><i class=\"fas fa-file text-danger\"></i> <a class='text-white ' href=\"".$item."\">$item</a></td><td>$size</td><td>$type</td><td>$date</td></tr>";
