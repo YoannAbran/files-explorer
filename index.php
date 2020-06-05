@@ -22,20 +22,32 @@
 
     <div class="row">
       <div class="col-sm px-3 py-1">
-        
-	       <nav aria-label='breadcrumb'>
+<?php
+
+
+	       echo "<nav aria-label='breadcrumb'>
   		        <ol class='breadcrumb'>
-    		         <li class='breadcrumb-item'><a href='index.php'>Home</a></li>
+    		         <li class='breadcrumb-item'><a href='index.php'>Home</a></li>";
 
-    		        <li class='breadcrumb-item'><a href=<?php echo $_SERVER['HTTP_REFERER']; ?>>retour</a></li>
 
-                <li class='breadcrumb-item active' aria-current='page'>
+                 if (empty($_GET['dir']))  {
+                     $list = ScanDirectory($defaultDir, "");
+                 } else {
+                     $dir = $_GET['dir'];
+                     $list = ScanDirectory($defaultDir, $dir);
+                 }
+                 chdir($defaultDir);
 
+    		      echo "<li class='breadcrumb-item'><a href=\"".$_SERVER['PHP_SELF']."?dir=".rawurlencode($defaultDir).
+              "\">$item</a></li>";
+
+                echo "<li class='breadcrumb-item active' aria-current='page'>
+$item
                   </li>
   		        </ol>
-	       </nav>
+	       </nav>";
 
-
+?>
       </div>
     </div>
   </div>
